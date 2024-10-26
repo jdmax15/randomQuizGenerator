@@ -73,7 +73,9 @@ for quizNum in range(35):
 
     # TODO: Shuffle the order of the states.
     states = list(capitals.keys())
+    print(states)
     random.shuffle(states)
+    print(states)
 
     # TODO: Loop through all 50 states, making a question for each.
     for questionNum in range(50):
