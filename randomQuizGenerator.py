@@ -62,22 +62,20 @@ capitals = {
 # Generate 35 quiz files.
 
 for quizNum in range(35):
-    # TODO: Create the quic and answer key files.
+    # Create the quic and answer key files.
     quizFile = open(f'capitalsquiz{quizNum + 1}.txt', 'w')
     answerKeyFile = open(f'capitalsquiz_answers{quizNum + 1}.txt', 'w')
 
-    # TODO: Write out the header for the quiz.
+    # TWrite out the header for the quiz.
     quizFile.write('Name:\n\nDate:\n\nPeriod:\n\n')
     quizFile.write((' ' * 20) + f'State Capitals Quiz (Form{quizNum + 1})')
     quizFile.write('\n\n')
 
-    # TODO: Shuffle the order of the states.
+    # Shuffle the order of the states.
     states = list(capitals.keys())
-    print(states)
     random.shuffle(states)
-    print(states)
 
-    # TODO: Loop through all 50 states, making a question for each.
+    # Loop through all 50 states, making a question for each.
     for questionNum in range(50):
         # Get right and wrong answers.
         correctAnswer = capitals[states[questionNum]]
@@ -87,13 +85,13 @@ for quizNum in range(35):
         answerOptions = wrongAnswers + [correctAnswer]
         random.shuffle(answerOptions)
 
-        # TODO: Write the question and answer options to the quiz file.
+        # Write the question and answer options to the quiz file.
         quizFile.write(f'{questionNum + 1}. What is the capital of {states[questionNum]}?\n')
         for i in range(4):
             quizFile.write(f"   {'ABCD'[i]}. { answerOptions[i]}\n")
         quizFile.write('\n')
 
-        # TODO: Write the answer key to a file.
+        # Write the answer key to a file.
         answerKeyFile.write(f"{questionNum + 1}.{'ABCD'[answerOptions.index(correctAnswer)]}\n")
 
     quizFile.close()
